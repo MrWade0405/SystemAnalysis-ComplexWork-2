@@ -81,10 +81,15 @@ namespace CA_K3_2
 		private static double GetLmax(double[][] array, double[] vectorsOfPriorities)
 		{
 			double Lmax = 0;
-
-			for(int i = 0; i < array.Length; i++)
+			
+			for (int i = 0; i < array.Length; i++)
 			{
-				double sum = array[i].Sum();
+				double sum = 0;
+
+				for (int j = 0; j < array[i].Length; j++)
+				{
+					sum += array[j][i];
+				}
 
 				Lmax += vectorsOfPriorities[i] * sum;
 			}
